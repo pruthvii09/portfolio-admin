@@ -1,4 +1,4 @@
-import { Github, Sidebar, Twitter } from "lucide-react";
+import { Github, Twitter } from "lucide-react";
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
