@@ -71,7 +71,7 @@ const Blogs = () => {
             blogs?.map((blog) => (
               <div
                 key={blog?.id}
-                className="block relative w-80 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+                className="block relative w-80 p-6  border  rounded-lg shadow  bg-gray-800 border-gray-700 hover:bg-gray-700"
               >
                 <div className="absolute right-2 top-2 flex gap-2">
                   <Edit size={18} />
@@ -81,10 +81,10 @@ const Blogs = () => {
                     color="red"
                   />
                 </div>
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tighttext-white">
                   {blog.title}
                 </h5>
-                <p className="font-normal text-gray-700 dark:text-gray-400">
+                <p className="font-normal text-gray-400">
                   {format(parseISO(blog?.createdAt), "MMMM dd, yyyy")}
                 </p>
                 <div className="flex cursor-pointer font-bold text-blue-600 gap-1">

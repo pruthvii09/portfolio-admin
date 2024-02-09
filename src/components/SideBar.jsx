@@ -37,7 +37,7 @@ const Sidebar = ({ children }) => {
           open ? "left-64" : ""
         }`}
       >
-        <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <div className="h-full px-3 py-4 overflow-y-auto  bg-gray-800">
           <div className="text-2xl text-white font-bold mb-3">
             Portfolio Builder
           </div>
@@ -45,7 +45,7 @@ const Sidebar = ({ children }) => {
             <li>
               <NavLink
                 to={"/dashboard"}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2  rounded-lg text-white  hover:bg-gray-700 group"
               >
                 <User />
                 <span className="ms-3">Profile</span>
@@ -54,11 +54,11 @@ const Sidebar = ({ children }) => {
             <li>
               <NavLink
                 to={"/dashboard/projects"}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2  rounded-lg text-white  hover:bg-gray-700 group"
               >
                 <LayoutDashboard />
                 <span className="flex-1 ms-3 whitespace-nowrap">Projects</span>
-                <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium rounded-full bg-gray-700 text-gray-300">
                   Pro
                 </span>
               </NavLink>
@@ -66,11 +66,11 @@ const Sidebar = ({ children }) => {
             <li>
               <NavLink
                 to={"/dashboard/blogs"}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2  rounded-lg text-white  hover:bg-gray-700 group"
               >
                 <NotebookPen />
                 <span className="flex-1 ms-3 whitespace-nowrap">Blog</span>
-                <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium rounded-full bg-gray-700 text-gray-300">
                   3
                 </span>
               </NavLink>
@@ -78,7 +78,7 @@ const Sidebar = ({ children }) => {
             <li>
               <NavLink
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2  rounded-lg text-white  hover:bg-gray-700 group"
               >
                 <LockKeyhole />
                 <span className="flex-1 ms-3 whitespace-nowrap">Passwords</span>
@@ -87,9 +87,9 @@ const Sidebar = ({ children }) => {
             <li>
               <button
                 onClick={handleLogout}
-                className="flex w-full text-start items-start p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:bg-gray-700 group"
+                className="flex w-full text-start items-center p-2  rounded-lg text-white  hover:bg-gray-700 group"
               >
-                <LogOut />
+                <LogOut color="red" />
                 <span className="flex-1 ms-3 whitespace-nowrap">Logout</span>
               </button>
             </li>

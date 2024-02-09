@@ -110,7 +110,7 @@ const Projects = () => {
           ) : (
             projects &&
             projects.map((project) => (
-              <div className="block relative w-80 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+              <div className="block relative w-80 p-6  border rounded-lg shadow  border-gray-700 hover:bg-gray-700">
                 <div className="absolute right-2 top-2 flex gap-2">
                   <Edit size={18} />
                   <Trash2
@@ -119,12 +119,10 @@ const Projects = () => {
                     color="red"
                   />
                 </div>
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
                   {project.title}
                 </h5>
-                <p className="font-normal text-gray-700 dark:text-gray-400">
-                  {project?.desc}
-                </p>
+                <p className="font-normal text-gray-400">{project?.desc}</p>
                 <div className="flex gap-2 mt-3">
                   {project.liveLink && (
                     <a href={project.liveLink} target="_blank">
@@ -146,12 +144,12 @@ const Projects = () => {
           <div>
             <div className="grid gap-6 mb-6 md:grid-cols-2">
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label className="block mb-2 text-sm font-medium text-white">
                   Title*
                 </label>
                 <input
                   type="text"
-                  className="bg-gray-50 border outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className=" border outline-none   text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Enter Title"
                   value={projectData.title}
                   onChange={(e) =>
@@ -160,12 +158,12 @@ const Projects = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label className="block mb-2 text-sm font-medium ">
                   Live Link
                 </label>
                 <input
                   type="text"
-                  className="bg-gray-50 border outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className=" border outline-none   text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Live Link"
                   value={projectData.liveLink}
                   onChange={(e) =>
@@ -174,12 +172,12 @@ const Projects = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label className="block mb-2 text-sm font-medium text-white">
                   Github*
                 </label>
                 <input
                   type="text"
-                  className="bg-gray-50 border outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className=" border outline-none   text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Github Link"
                   value={projectData.github}
                   onChange={(e) =>
@@ -189,12 +187,12 @@ const Projects = () => {
               </div>
             </div>
             <div className="mb-3">
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              <label className="block mb-2 text-sm font-medium text-white">
                 About*
               </label>
               <textarea
                 rows="4"
-                className="block p-2.5 w-full outline-none text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className=" border outline-none   text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                 placeholder="Write about You..."
                 value={projectData.desc}
                 onChange={(e) =>
@@ -211,7 +209,7 @@ const Projects = () => {
 
             <button
               onClick={handleSubmit}
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white  focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
             >
               {loading ? <Loader /> : "Add Project"}
             </button>
