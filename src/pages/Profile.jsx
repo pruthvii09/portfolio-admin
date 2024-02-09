@@ -68,9 +68,12 @@ const Profile = () => {
             >
               Edit Profile
             </button>
-            <button className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1">
+            <a
+              href={`https://portfoliobuilderpruthvi.vercel.app/${userData?.username}"`}
+              className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1"
+            >
               View Your Profile
-            </button>
+            </a>
           </div>
         </Sidebar>
       )}
