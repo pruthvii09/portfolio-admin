@@ -61,12 +61,17 @@ const Profile = () => {
               <GitHubCalendar username="pruthvii09" />
             </div>
           </div>
-          <button
-            onClick={() => navigate("/dashboard/edit-profile")}
-            className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1"
-          >
-            Edit Profile
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={() => navigate("/dashboard/edit-profile")}
+              className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1"
+            >
+              Edit Profile
+            </button>
+            <button className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1">
+              View Your Profile
+            </button>
+          </div>
         </Sidebar>
       )}
     </>

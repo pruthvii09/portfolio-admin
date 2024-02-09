@@ -21,6 +21,7 @@ const EditProfile = () => {
     linkedin: "",
     desc: "",
     img: "",
+    pdf: "",
   });
 
   const { data, getLoading, getError } = useGetApiData(
@@ -42,6 +43,7 @@ const EditProfile = () => {
         linkedin: data?.social?.linkedin || "",
         desc: data?.desc || "",
         img: data?.img || "",
+        pdf: data?.pdf || "",
       });
     }
   }, [getError, getLoading]);
@@ -62,6 +64,24 @@ const EditProfile = () => {
     }
     setLoading(false);
   };
+  const handleUploadResume = async (e) => {
+    setLoading(true);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    if (selectedFile) {
+      try {
+        const pdfUrl = await uploadFile(selectedFile);
+        setUpdatedData((prevData) => ({
+          ...prevData,
+          pdf: pdfUrl,
+        }));
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+    setLoading(false);
+  };
+  console.log(updatedData);
   const handleUpdate = async () => {
     setLoading(true);
     try {
@@ -215,6 +235,28 @@ const EditProfile = () => {
                   onChange={(e) =>
                     setUpdatedData({ ...updatedData, linkedin: e.target.value })
                   }
+                />
+              </div>
+              <div>
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Upload Latest Resume
+                </label>
+                {updatedData?.pdf !== "" && (
+                  <a
+                    href={updatedData?.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 text-sm hover:underline cursor-pointer"
+                  >
+                    View Resume
+                  </a>
+                )}
+                <input
+                  className="bg-gray-50 border outline-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  id="multiple_files"
+                  type="file"
+                  onChange={handleUploadResume}
+                  multiple
                 />
               </div>
               <div className="sm:col-span-2">
