@@ -1,20 +1,24 @@
 import React from "react";
 import Sidebar from "../components/SideBar";
-import JoditEditor from "jodit-react";
 import { useState } from "react";
-import { useRef } from "react";
 import { useSelector } from "react-redux";
 import usePostAPIData from "../hooks/postApiData";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Loader from "../components/Loader";
+import { ckEditorConfig } from "../constants/text-editor";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const AddBlog = () => {
-  const editor = useRef(null);
   const { user } = useSelector((store) => store.user);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const { sendData, loading, error } = usePostAPIData();
+  const handleEditorChange = (event, editor) => {
+    const data = editor.getData();
+    setDesc(data);
+    console.log(desc);
+  };
 
   const handleAddBlog = async () => {
     const res = await sendData(
@@ -66,12 +70,24 @@ const AddBlog = () => {
       <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
         About*
       </label>
-      <div className="mb-3 bg-white text-black rounded-md">
-        <JoditEditor
-          ref={editor}
-          config={{ theme: "dark" }}
-          value={desc}
-          onBlur={(e) => setDesc(e)}
+      <div className="bg-white text-black rounded-lg">
+        {/* <ReactQuill
+          theme="snow"
+          modules={modules}
+          formats={formats}
+          placeholder="write your content ...."
+          onChange={handleProcedureContentChange}
+          style={{ height: "220px" }}
+        /> */}
+        <CKEditor
+          editor={ClassicEditor}
+          config={ckEditorConfig}
+          data="<p>Write your blog Here&nbsp;</p>"
+          onReady={(editor) => {
+            // You can store the "editor" and use when it is needed.
+            console.log("Editor is ready to use!", editor.getData());
+          }}
+          onChange={handleEditorChange}
         />
       </div>
     </Sidebar>
