@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import Loader from "../components/Loader";
 import { ckEditorConfig } from "../constants/text-editor";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Editor from "ckeditor5-custom-build/build/ckeditor";
 
 const AddBlog = () => {
   const { user } = useSelector((store) => store.user);
@@ -71,20 +71,11 @@ const AddBlog = () => {
         About*
       </label>
       <div className="bg-white text-black rounded-lg">
-        {/* <ReactQuill
-          theme="snow"
-          modules={modules}
-          formats={formats}
-          placeholder="write your content ...."
-          onChange={handleProcedureContentChange}
-          style={{ height: "220px" }}
-        /> */}
         <CKEditor
-          editor={ClassicEditor}
+          editor={Editor}
           config={ckEditorConfig}
           data="<p>Write your blog Here&nbsp;</p>"
           onReady={(editor) => {
-            // You can store the "editor" and use when it is needed.
             console.log("Editor is ready to use!", editor.getData());
           }}
           onChange={handleEditorChange}

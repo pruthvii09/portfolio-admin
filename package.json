@@ -12,6 +12,7 @@
     "autoprefixer": "^10.4.16",
     "aws-sdk": "^2.1554.0",
     "axios": "^1.6.7",
+    "ckeditor5-custom-build": "file:ckeditor5",
     "crypto": "^1.0.1",
     "date-fns": "^3.3.1",
     "highlight.js": "^11.9.0",
