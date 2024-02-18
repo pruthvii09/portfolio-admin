@@ -5,7 +5,7 @@ import useGetApiData from "../hooks/getApiData";
 import ProfileSkeleton from "../components/Skeleton/ProfileSkeleton";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Profile = () => {
   const { user } = useSelector((store) => store.user);
   const navigate = useNavigate();
@@ -29,9 +29,27 @@ const Profile = () => {
         <ProfileSkeleton />
       ) : (
         <Sidebar>
+          <div className="flex gap-3 mb-5">
+            <button
+              onClick={() => navigate("/dashboard/edit-profile")}
+              className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1"
+            >
+              Edit Profile
+            </button>
+            <a
+              href={`https://portfoliobuilderpruthvi.vercel.app/${userData?.username}`}
+              className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1"
+            >
+              Portfolio Website
+            </a>
+          </div>
           <div className="border border-gray-800 px-3 py-5 rounded-md">
             <div className="flex justify-between">
-              <div className="flex gap-2">
+              <a
+                target="_blank"
+                href={`https://portfoliobuilderpruthvi.vercel.app/${userData?.username}`}
+                className="flex gap-2"
+              >
                 <img
                   src={userData?.img}
                   alt="profile"
@@ -39,11 +57,14 @@ const Profile = () => {
                 />
                 <div>
                   <h1 className="sm:text-4xl text-2xl">{userData?.name}</h1>
-                  <p className="text-base">Full Stack Developer</p>
+                  <p className="text-base">{userData?.title}</p>
                 </div>
-              </div>
+              </a>
               <div className="flex sm:flex-row flex-col gap-2 text-xs">
-                <a href={`www.github.com/${userData?.social?.github}`}>
+                <a
+                  target="_blank"
+                  href={`www.github.com/${userData?.social?.github}`}
+                >
                   <Github
                     className="hover:text-blue-700 cursor-pointer"
                     size={18}
@@ -60,20 +81,6 @@ const Profile = () => {
               <h2 className="text-2xl my-3">Github Calander</h2>
               <GitHubCalendar username="pruthvii09" />
             </div>
-          </div>
-          <div className="flex gap-3">
-            <button
-              onClick={() => navigate("/dashboard/edit-profile")}
-              className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1"
-            >
-              Edit Profile
-            </button>
-            <a
-              href={`https://portfoliobuilderpruthvi.vercel.app/${userData?.username}"`}
-              className="rounded-md mt-3 hover:bg-blue-600 bg-blue-700 items-center px-2 py-1"
-            >
-              View Your Profile
-            </a>
           </div>
         </Sidebar>
       )}
