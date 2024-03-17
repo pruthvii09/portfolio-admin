@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { logoutUser } from "../redux/userSclice.js";
 import {
   LayoutDashboard,
-  LockKeyhole,
   Menu,
   NotebookPen,
   User,
   LogOut,
+  FileJson2,
 } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeAllProjects } from "../redux/productSclice.js";
 const Sidebar = ({ children }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { blogs } = useSelector((store) => store.blogs);
   const [open, setOpen] = useState(false);
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -58,9 +59,6 @@ const Sidebar = ({ children }) => {
               >
                 <LayoutDashboard />
                 <span className="flex-1 ms-3 whitespace-nowrap">Projects</span>
-                <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium rounded-full bg-gray-700 text-gray-300">
-                  Pro
-                </span>
               </NavLink>
             </li>
             <li>
@@ -71,17 +69,19 @@ const Sidebar = ({ children }) => {
                 <NotebookPen />
                 <span className="flex-1 ms-3 whitespace-nowrap">Blog</span>
                 <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium rounded-full bg-gray-700 text-gray-300">
-                  3
+                  {blogs?.length ? blogs.length : 0}
                 </span>
               </NavLink>
             </li>
             <li>
               <NavLink
-                href="#"
+                to={"/dashboard/dsa"}
                 className="flex items-center p-2  rounded-lg text-white  hover:bg-gray-700 group"
               >
-                <LockKeyhole />
-                <span className="flex-1 ms-3 whitespace-nowrap">Passwords</span>
+                <FileJson2 />
+                <span className="flex-1 ms-3 whitespace-nowrap">
+                  DSA Questions
+                </span>
               </NavLink>
             </li>
             <li>

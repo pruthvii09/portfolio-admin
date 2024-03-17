@@ -9,6 +9,8 @@ import Projects from "./pages/Projects";
 import SignupPage from "./pages/SignupPage";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import DsaQuestions from "./pages/DsaQuestions";
+import AddQuestion from "./pages/AddQuestion";
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
         <Route path="/dashboard/edit-profile" element={<EditProfile />} />
         <Route path="/dashboard/projects" element={<Projects />} />
         <Route path="/dashboard/blogs" element={<Blogs />} />
+        <Route path="/dashboard/dsa" element={<DsaQuestions />} />
         <Route path="/dashboard/blogs/add-blog" element={<AddBlog />} />
+        <Route path="/dashboard/dsa/add-question" element={<AddQuestion />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Toaster />

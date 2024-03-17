@@ -104,7 +104,7 @@ const Projects = () => {
             <Plus size={18} />
           </button>
         </div>
-        <div className="flex justify-center sm:justify-start flex-wrap gap-4 mt-5">
+        <div className="grid sm:grid-cols-3 grid-cols-1 place-items-center sm:place-items-stretch gap-4 py-5">
           {getLoading ? (
             <ProjectCard />
           ) : (
@@ -122,7 +122,9 @@ const Projects = () => {
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
                   {project.title}
                 </h5>
-                <p className="font-normal text-gray-400">{project?.desc}</p>
+                <p className="font-normal text-gray-400">
+                  {project?.desc?.substring(0, 50)}...
+                </p>
                 <div className="flex gap-2 mt-3">
                   {project.liveLink && (
                     <a href={project.liveLink} target="_blank">

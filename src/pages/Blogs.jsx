@@ -63,7 +63,7 @@ const Blogs = () => {
             <Plus size={18} />
           </button>
         </div>
-        <div className="flex items-center justify-center sm:justify-start flex-wrap gap-4 mt-5">
+        <div className="grid sm:grid-cols-3 grid-cols-1 place-items-center sm:place-items-stretch gap-4 py-5">
           {getLoading ? (
             <ProjectCard />
           ) : (

@@ -12,7 +12,7 @@ const usePostAPIData = () => {
 
       return res.data;
     } catch (error) {
-      setError(error.response.data.error);
+      setError(error.response?.data?.error);
     } finally {
       setLoading(false);
     }

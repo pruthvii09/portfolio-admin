@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600;700;800;900&display=swap");
 @tailwind base;
+body::-webkit-scrollbar {
+  width: 2px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #1f2937; /* color of the tracking area */
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1d4ed8; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+}
 @tailwind components;
 @tailwind utilities;
